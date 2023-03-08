@@ -275,9 +275,10 @@ const ProductDetails = () => {
 
                   <Box className="py-5">
                     <Button
-                      className="bg-[#3498DB] text-white hover:bg-[#3498DB] hover:text-white shadow-none rounded-none"
+                      className="bg-[#3498DB] text-white hover:bg-[#3498DB] hover:text-white shadow-none rounded-none hover:shadow-none"
                       size="large"
                       endIcon={<IoChevronForwardOutline />}
+                      variant="contained"
                     >
                       Go To Amazon AE
                     </Button>
