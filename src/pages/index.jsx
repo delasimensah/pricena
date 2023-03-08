@@ -1,11 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from 'next/link'
 
 const Home = () => {
-  return <>Home Page</>;
+  return <><Link href='/product/samsung-galaxy-z-flip-3'>
+    Link To Product Page
+  </Link></>;
 };
 
 export default Home;

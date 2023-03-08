@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "paths": {
-      // "@/*": ["./src/*"],
       "@components": ["./src/components/index.js"],
       "@lib/*": ["./src/lib/*"],
-      "@styles": ["./src/styles/globals.css"]
+      "@styles": ["./src/styles/globals.css"],
+      "@assets/*": ["./src/assets/*"]
     }
   }
 }
