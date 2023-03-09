@@ -6,6 +6,9 @@ import {
   Typography,
   Rating,
   Button,
+  MenuItem,
+  FormControl,
+  Select,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import {
@@ -16,7 +19,7 @@ import {
 } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
-import { Layout } from "@components";
+import { Layout, CustomTabs } from "@components";
 
 import img2 from "@assets/2.png";
 import img3 from "@assets/3.png";
@@ -38,6 +41,7 @@ const imgs = [
   img9,
   "https://r.kelkoo.com/resize.php?country=ae&merchantId=100540299&categoryId=113501&trackingId=96986255&width=300&height=300&image=https%3A%2F%2Fwww.eros.ae%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fd620ef8fe727ad37280b526706b83920%2Fs%2Fm%2Fsmt220nzaameaw-02_1.jpg&sign=CIHDurV1E9UljK88xMtlLwVX0oMohVzSpbCU47BCXPY-",
 ];
+
 const menuLinks = [
   "Compare Prices",
   "Videos",
@@ -47,9 +51,12 @@ const menuLinks = [
 ];
 
 const ProductDetails = () => {
-  const { palette } = useTheme();
+  const { palette, typography } = useTheme();
   const [selected, setSelected] = useState(0);
   const [active, setActive] = useState("Compare Prices");
+  const [colors, setColors] = useState("");
+  const [capacities, setCapacities] = useState("");
+  const [network, setNetwork] = useState("");
 
   return (
     <Layout>
@@ -233,7 +240,7 @@ const ProductDetails = () => {
                   sx={{
                     marginY: "10px",
                     borderTop: "1px solid #ececec",
-                    paddingY: "5px",
+                    paddingY: "10px",
                   }}
                 >
                   <Box
@@ -270,7 +277,7 @@ const ProductDetails = () => {
                         AED 2136 including 10 AED shipping
                       </Typography>
 
-                      <div className="flex items-end space-x-5 text-[#888]">
+                      <div className="flex items-end space-x-5 pt-2 text-[#888]">
                         <div className="flex space-x-2 place-items-center">
                           <IoNotificationsOutline size="18px" />
 
@@ -298,14 +305,49 @@ const ProductDetails = () => {
                   </Box>
                 </Box>
 
-                {/* <Box
-                sx={{
-                  borderTop: "1px solid #ececec",
-                  paddingY: "10px",
-                }}
-              >
-                Select
-              </Box> */}
+                <Box
+                  sx={{
+                    borderTop: "1px solid #ececec",
+                    paddingY: "10px",
+                  }}
+                  className="flex items-center space-x-5"
+                >
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+                    <Select defaultValue="all" displayEmpty>
+                      <MenuItem value="all">All Colors</MenuItem>
+                      <MenuItem value={10}>Blue</MenuItem>
+                      <MenuItem value={20}>Pink</MenuItem>
+                      <MenuItem value={30}>Black</MenuItem>
+                    </Select>
+                  </FormControl>
+
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+                    <Select defaultValue="all" displayEmpty>
+                      <MenuItem value="all">All Capacities</MenuItem>
+                      <MenuItem value={10}>128 GB</MenuItem>
+                      <MenuItem value={20}>256 GB</MenuItem>
+                    </Select>
+                  </FormControl>
+
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+                    <Select defaultValue="5G" displayEmpty>
+                      <MenuItem value="5G">5G</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+
+                <Box
+                  sx={{
+                    borderTop: "1px solid #ececec",
+                    paddingY: "10px",
+                  }}
+                >
+                  <Typography className="text-lg font-bold">
+                    Samsung Galaxy Z Flip 3 Price Dubai, UAE
+                  </Typography>
+
+                  <CustomTabs />
+                </Box>
               </Box>
             </Box>
           </Grid>
