@@ -1,63 +1,17 @@
-import { useState } from "react";
-import {
-  Box,
-  Grid,
-  Breadcrumbs,
-  Typography,
-  Rating,
-  Button,
-  MenuItem,
-  FormControl,
-  Select,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import {
-  IoNotificationsOutline,
-  IoHeartOutline,
-  IoChevronForwardOutline,
-  IoCheckmarkCircleSharp,
-} from "react-icons/io5";
+import { Box, Grid, Breadcrumbs } from "@mui/material";
 import Link from "next/link";
-import Image from "next/image";
-import { Layout, CustomTabs } from "@components";
-
-import img2 from "@assets/2.png";
-import img3 from "@assets/3.png";
-import img4 from "@assets/4.png";
-import img5 from "@assets/5.png";
-import img6 from "@assets/6.png";
-import img7 from "@assets/7.png";
-import img8 from "@assets/8.png";
-import img9 from "@assets/9.png";
-
-const imgs = [
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  "https://r.kelkoo.com/resize.php?country=ae&merchantId=100540299&categoryId=113501&trackingId=96986255&width=300&height=300&image=https%3A%2F%2Fwww.eros.ae%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fd620ef8fe727ad37280b526706b83920%2Fs%2Fm%2Fsmt220nzaameaw-02_1.jpg&sign=CIHDurV1E9UljK88xMtlLwVX0oMohVzSpbCU47BCXPY-",
-];
-
-const menuLinks = [
-  "Compare Prices",
-  "Videos",
-  "Price Tracking",
-  "Specs",
-  "Ratings",
-];
+import {
+  Layout,
+  Carousel,
+  Popular,
+  Links,
+  ProductName,
+  BestPrice,
+  Variants,
+  ComparePrices,
+} from "@components";
 
 const ProductDetails = () => {
-  const { palette, typography } = useTheme();
-  const [selected, setSelected] = useState(0);
-  const [active, setActive] = useState("Compare Prices");
-  const [colors, setColors] = useState("");
-  const [capacities, setCapacities] = useState("");
-  const [network, setNetwork] = useState("");
-
   return (
     <Layout>
       <Box
@@ -79,276 +33,29 @@ const ProductDetails = () => {
                 <Link href="#">SAMSUNG Mobile Phones</Link>
               </Breadcrumbs>
 
-              {/* carousel*/}
-              <Box
-                sx={{
-                  marginTop: "10px",
-                  position: "relative",
-                  minHeight: "417px",
-                  width: "100%",
-                }}
-              >
-                {/* selected image */}
-                <Box
-                  sx={{
-                    height: "300px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Image src={imgs[selected]} alt="" width={250} height={250} />
-                </Box>
+              <Carousel />
 
-                {/* images */}
-                <Grid container sx={{ marginTop: "10px" }} spacing={1}>
-                  {imgs.map((img, idx) => {
-                    return (
-                      <Grid key={idx} item lg={3}>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            border:
-                              selected === idx
-                                ? `1px solid ${palette.primary.main}`
-                                : "1px solid #eeeeee",
-                            cursor: "pointer",
-                          }}
-                          onMouseEnter={() => {
-                            setSelected(idx);
-                          }}
-                        >
-                          <Image src={img} alt="" width={50} height={50} />
-                        </Box>
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-
-                {/* popular */}
-                <Box sx={{ marginTop: "30px" }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: "17px", fontWeight: 600 }}>
-                      Popular in Mobile Phones
-                    </Typography>
-
-                    <Link href="#">
-                      <Typography sx={{ color: "#aaa" }}>See all</Typography>
-                    </Link>
-                  </Box>
-                </Box>
-              </Box>
+              <Popular />
             </Box>
           </Grid>
 
           {/* col 2 */}
           <Grid item lg={6}>
-            {/* links */}
             <Box
               sx={{
                 paddingX: "15px",
                 paddingBottom: "15px",
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                {menuLinks.map((link, idx) => {
-                  return (
-                    <Box
-                      key={idx}
-                      sx={{
-                        borderTop:
-                          active === link
-                            ? `3px solid ${palette.primary.main}`
-                            : "3px solid transparent",
-                        marginRight: "20px",
-                        paddingY: "10px",
-                        color: active === link ? "#888" : "#aaa",
-                        fontWeight: active === link ? 700 : 400,
+              <Links />
 
-                        "&:hover": {
-                          borderTop: `3px solid ${palette.primary.main}`,
-                        },
-                      }}
-                    >
-                      <Link href="#">
-                        <Typography>{link}</Typography>
-                      </Link>
-                    </Box>
-                  );
-                })}
-              </Box>
+              <ProductName />
 
-              {/* product info */}
+              <BestPrice />
 
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#444",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                  }}
-                >
-                  Samsung Galaxy Z Flip 3
-                </Typography>
+              <Variants />
 
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <Typography sx={{ color: "#aaa", fontSize: "12px" }}>
-                      by
-                    </Typography>
-                    <Link href="#">
-                      <Typography
-                        sx={{
-                          color: "#0077ab",
-                          marginLeft: "5px",
-                          fontSize: "12px",
-                        }}
-                      >
-                        SAMSUNG
-                      </Typography>
-                    </Link>
-                  </Box>
-
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginLeft: "10px",
-                    }}
-                  >
-                    <Rating value={null} size="small" />
-                    <Typography sx={{ fontSize: "12px", marginLeft: "5px" }}>
-                      (18)
-                    </Typography>
-                  </Box>
-                </Box>
-
-                <Box
-                  sx={{
-                    marginY: "10px",
-                    borderTop: "1px solid #ececec",
-                    paddingY: "10px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Box className="space-y-1">
-                      <div className="flex items-center space-x-1 ">
-                        <IoCheckmarkCircleSharp color="#3498DB" />
-
-                        <Typography className="text-[12px] text-[#aaa]">
-                          <span className={`text-[#3498DB] font-medium `}>
-                            Best Price
-                          </span>{" "}
-                          from 5 online stores
-                        </Typography>
-                      </div>
-
-                      <Typography className=" text-[#aaa]">
-                        <span
-                          className={`text-[#0077ab] text-[32px] font-bold`}
-                        >
-                          AED 2126
-                        </span>{" "}
-                        from{" "}
-                        <span className="text-[14px] text-[#888] font-medium">
-                          Amazon AE
-                        </span>
-                      </Typography>
-
-                      <Typography className="text-xs text-[#888]">
-                        AED 2136 including 10 AED shipping
-                      </Typography>
-
-                      <div className="flex items-end space-x-5 pt-2 text-[#888]">
-                        <div className="flex space-x-2 place-items-center">
-                          <IoNotificationsOutline size="18px" />
-
-                          <p className="text-[13px]">Set price alert</p>
-                        </div>
-
-                        <div className="flex space-x-2 place-items-center">
-                          <IoHeartOutline size="18px" />
-
-                          <p className="text-[13px]">Add to Favourites</p>
-                        </div>
-                      </div>
-                    </Box>
-
-                    <Box className="py-5">
-                      <Button
-                        className="bg-[#3498DB] text-white hover:bg-[#3498DB] hover:text-white shadow-none rounded-none hover:shadow-none"
-                        size="large"
-                        endIcon={<IoChevronForwardOutline />}
-                        variant="contained"
-                      >
-                        Go To Amazon AE
-                      </Button>
-                    </Box>
-                  </Box>
-                </Box>
-
-                <Box
-                  sx={{
-                    borderTop: "1px solid #ececec",
-                    paddingY: "10px",
-                  }}
-                  className="flex items-center space-x-5"
-                >
-                  <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select defaultValue="all" displayEmpty>
-                      <MenuItem value="all">All Colors</MenuItem>
-                      <MenuItem value={10}>Blue</MenuItem>
-                      <MenuItem value={20}>Pink</MenuItem>
-                      <MenuItem value={30}>Black</MenuItem>
-                    </Select>
-                  </FormControl>
-
-                  <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select defaultValue="all" displayEmpty>
-                      <MenuItem value="all">All Capacities</MenuItem>
-                      <MenuItem value={10}>128 GB</MenuItem>
-                      <MenuItem value={20}>256 GB</MenuItem>
-                    </Select>
-                  </FormControl>
-
-                  <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select defaultValue="5G" displayEmpty>
-                      <MenuItem value="5G">5G</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-
-                <Box
-                  sx={{
-                    borderTop: "1px solid #ececec",
-                    paddingY: "10px",
-                  }}
-                >
-                  <Typography className="text-lg font-bold">
-                    Samsung Galaxy Z Flip 3 Price Dubai, UAE
-                  </Typography>
-
-                  <CustomTabs />
-                </Box>
-              </Box>
+              <ComparePrices />
             </Box>
           </Grid>
 

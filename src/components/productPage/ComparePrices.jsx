@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Tabs, Tab, Typography } from "@mui/material";
 
 const data = new Array(5).fill(0);
 
@@ -45,4 +45,21 @@ const CustomTabs = () => {
   );
 };
 
-export default CustomTabs;
+const ComparePrices = () => {
+  return (
+    <Box
+      sx={{
+        borderTop: "1px solid #ececec",
+        paddingY: "10px",
+      }}
+    >
+      <Typography className="text-lg font-bold">
+        Samsung Galaxy Z Flip 3 Price Dubai, UAE
+      </Typography>
+
+      <CustomTabs />
+    </Box>
+  );
+};
+
+export default ComparePrices;
