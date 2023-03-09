@@ -54,21 +54,29 @@ function ShopLink() {
   return (
     <div className="flex py-3 border-b border-b-[#ececec]">
       <div className="flex-1 space-y-1">
-        <Link href="#" className="text-sm hover:text-[#888]">
+        <Link
+          href="#"
+          className="text-sm hover:text-[#888] font-medium text-[#444]"
+        >
           Samsung Galaxy Z Flip3 5G Single SIM and e-SIM Smartphone, 128GB
-          Storage and 8GB RAM, Green | <span>Price updated 3 days ago</span>{" "}
+          Storage and 8GB RAM, Green |{" "}
+          <span className="text-[#888] font-semibold">
+            Price updated 3 days ago
+          </span>{" "}
           <Stack direction="row" spacing={1}>
             <Chip
               label="128 GB"
               variant="outlined"
               color="primary"
               className="rounded-none"
+              size="small"
             />
             <Chip
               label="Black"
               variant="outlined"
               color="primary"
               className="rounded-none"
+              size="small"
             />
           </Stack>
         </Link>
@@ -95,7 +103,7 @@ function ShopLink() {
           </div>
         </Box>
 
-        <Link href="#" className="text-xs text-[#888]">
+        <Link href="#" className="text-xs text-[#888] hover:text-[#aaa]">
           Write a review
         </Link>
       </div>
