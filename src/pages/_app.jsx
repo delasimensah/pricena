@@ -1,6 +1,7 @@
 import { Figtree } from "next/font/google";
 import { ThemeProvider } from "@mui/material/styles";
 import getTheme from "@lib/muiTheme";
+import { DefaultSeo } from "next-seo";
 
 import "@styles";
 
@@ -22,6 +23,10 @@ const App = ({ Component, pageProps }) => {
           }
         `}</style>
 
+        <DefaultSeo
+          title="Online Shopping UAE, Compare prices across all stores"
+          description="E-commerce Website"
+        />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
