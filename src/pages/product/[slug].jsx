@@ -28,7 +28,17 @@ import img7 from "@assets/7.png";
 import img8 from "@assets/8.png";
 import img9 from "@assets/9.png";
 
-const imgs = [img2, img3, img4, img5, img6, img7, img8, img9];
+const imgs = [
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  "https://r.kelkoo.com/resize.php?country=ae&merchantId=100540299&categoryId=113501&trackingId=96986255&width=300&height=300&image=https%3A%2F%2Fwww.eros.ae%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fd620ef8fe727ad37280b526706b83920%2Fs%2Fm%2Fsmt220nzaameaw-02_1.jpg&sign=CIHDurV1E9UljK88xMtlLwVX0oMohVzSpbCU47BCXPY-",
+];
 const menuLinks = [
   "Compare Prices",
   "Videos",
@@ -233,7 +243,7 @@ const ProductDetails = () => {
                   }}
                 >
                   <Box className="space-y-1">
-                    <div className=" flex items-center space-x-1">
+                    <div className="flex items-center space-x-1 ">
                       <IoCheckmarkCircleSharp color="#3498DB" />
 
                       <Typography className="text-[12px] text-[#aaa]">
@@ -259,13 +269,13 @@ const ProductDetails = () => {
                     </Typography>
 
                     <div className="flex items-end space-x-5 text-[#888]">
-                      <div className="flex place-items-center space-x-2">
+                      <div className="flex space-x-2 place-items-center">
                         <IoNotificationsOutline size="18px" />
 
                         <p className="text-[13px]">Set price alert</p>
                       </div>
 
-                      <div className="flex place-items-center space-x-2">
+                      <div className="flex space-x-2 place-items-center">
                         <IoHeartOutline size="18px" />
 
                         <p className="text-[13px]">Add to Favourites</p>
