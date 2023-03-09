@@ -16,7 +16,7 @@ import {
 } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "@components";
+import { Layout } from "@components";
 
 import img2 from "@assets/2.png";
 import img3 from "@assets/3.png";
