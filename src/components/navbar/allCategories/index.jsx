@@ -9,8 +9,6 @@ import {
 } from "material-ui-popup-state/hooks";
 import colors from "@lib/colors";
 
-import SubMenu from "./SubMenu";
-
 const CascadingContext = createContext({
   parentPopupState: null,
   rootPopupState: null,
