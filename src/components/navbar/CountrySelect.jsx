@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { IoCaretDownOutline } from "react-icons/io5";
-import { Menu, MenuItem, Box, ListItemIcon, ListItemText } from "@mui/material";
+import { MenuItem, Box, ListItemIcon, ListItemText } from "@mui/material";
+import HoverMenu from "material-ui-popup-state/HoverMenu";
+import {
+  usePopupState,
+  bindHover,
+  bindMenu,
+} from "material-ui-popup-state/hooks";
 import Image from "next/image";
 
 import uae from "@assets/UAE.jpg";
@@ -18,25 +24,24 @@ const countries = [
 ];
 
 const CountrySelect = () => {
-  const [countryDropdown, setCountryDropdown] = useState(null);
+  const popupState = usePopupState({
+    variant: "popover",
+    popupId: "countrySelect",
+  });
+
   const [selectedCountry, setSelectedCountry] = useState(0);
-
-  const showCountryMenu = (e) => {
-    setCountryDropdown(e.currentTarget);
-  };
-
-  const hideCountryMenu = () => {
-    setCountryDropdown(null);
-  };
 
   const selectCountry = (idx) => {
     setSelectedCountry(idx);
-    hideCountryMenu();
+    popupState.close();
   };
 
   return (
-    <Box>
-      <Box className="flex items-center" onMouseEnter={showCountryMenu}>
+    <>
+      <Box
+        className="flex items-center cursor-pointer"
+        {...bindHover(popupState)}
+      >
         <Image
           src={countries[selectedCountry].flag}
           alt=""
@@ -48,10 +53,10 @@ const CountrySelect = () => {
         <IoCaretDownOutline />
       </Box>
 
-      <Menu
-        anchorEl={countryDropdown}
-        open={Boolean(countryDropdown)}
-        onClose={hideCountryMenu}
+      <HoverMenu
+        {...bindMenu(popupState)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
       >
         {countries.map((country, idx) => {
           return (
@@ -69,8 +74,8 @@ const CountrySelect = () => {
             </MenuItem>
           );
         })}
-      </Menu>
-    </Box>
+      </HoverMenu>
+    </>
   );
 };
 

@@ -1,42 +1,43 @@
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, MenuItem, Typography } from "@mui/material";
+import { MenuItem, Typography } from "@mui/material";
+import HoverMenu from "material-ui-popup-state/HoverMenu";
+import {
+  usePopupState,
+  bindHover,
+  bindMenu,
+} from "material-ui-popup-state/hooks";
+import { useRouter } from "next/router";
 
 const AuthLink = () => {
-  const [loginDropdown, setLoginDropdown] = useState(null);
-
-  const showLoginMenu = (e) => {
-    setLoginDropdown(e.currentTarget);
-  };
-
-  const hideLoginMenu = () => {
-    setLoginDropdown(null);
-  };
+  const { push } = useRouter();
+  const popupState = usePopupState({
+    variant: "popover",
+    popupId: "authDropdown",
+  });
 
   return (
-    <div>
-      <Link href="/product/samsung">
-        <Typography className="text-sm text-[#888]">
-          Log In / Sign Up
-        </Typography>
-      </Link>
-
-      <div
-        className="border border-transparent"
-        onMouseEnter={showLoginMenu}
-      ></div>
-
-      <Menu
-        anchorEl={loginDropdown}
-        open={Boolean(loginDropdown)}
-        onClose={hideLoginMenu}
+    <>
+      <Typography
+        className="text-sm text-[#888] cursor-pointer"
+        {...bindHover(popupState)}
+        onClick={() => {
+          push("/auth");
+          popupState.close();
+        }}
       >
-        <MenuItem onClick={hideLoginMenu}>My Reviews</MenuItem>
-        <MenuItem onClick={hideLoginMenu}>My Favourites</MenuItem>
-        <MenuItem onClick={hideLoginMenu}>My History</MenuItem>
-        <MenuItem onClick={hideLoginMenu}>My Alerts</MenuItem>
-      </Menu>
-    </div>
+        Log In / Sign Up
+      </Typography>
+
+      <HoverMenu
+        {...bindMenu(popupState)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <MenuItem onClick={popupState.close}>My Reviews</MenuItem>
+        <MenuItem onClick={popupState.close}>My Favourites</MenuItem>
+        <MenuItem onClick={popupState.close}>My History</MenuItem>
+        <MenuItem onClick={popupState.close}>My Alerts</MenuItem>
+      </HoverMenu>
+    </>
   );
 };
 
