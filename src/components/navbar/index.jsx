@@ -23,7 +23,7 @@ const Navbar = () => {
         </Box>
       </Box>
 
-      <Box className="flex items-center space-x-10 ">
+      <Box className="items-center hidden space-x-10 lg:flex ">
         <AllCategories />
 
         <Links />

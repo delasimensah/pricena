@@ -24,7 +24,7 @@ const ProductDetails = () => {
       >
         <Grid container>
           {/* col 1 */}
-          <Grid item lg={3}>
+          <Grid item xs={12} lg={3}>
             <Box sx={{ padding: "15px" }}>
               {/* breadcrumbs */}
               <Breadcrumbs sx={{ fontSize: "12px", color: "#aaa" }}>
@@ -40,7 +40,7 @@ const ProductDetails = () => {
           </Grid>
 
           {/* col 2 */}
-          <Grid item lg={6}>
+          <Grid item xs={12} lg={6}>
             <Box
               sx={{
                 paddingX: "15px",
@@ -60,6 +60,9 @@ const ProductDetails = () => {
           </Grid>
 
           {/* col 3 */}
+          {/* <Grid item xs={12} lg={3}>
+            <Box>Col 3</Box>
+          </Grid> */}
         </Grid>
       </Box>
     </Layout>
