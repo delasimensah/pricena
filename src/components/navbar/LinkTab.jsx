@@ -1,18 +1,18 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import Link from "next/link";
+import colors from "@lib/colors";
+import { useRouter } from "next/router";
 
 const LinkTab = ({ title }) => {
-  const primary = "#3498D8";
+  const { push } = useRouter();
 
   return (
-    <Link href="#" className="">
-      <Typography
-        className={`py-3 border-b-2 border-b-transparent hover:border-b-[${primary}] hover:text-[${primary}]`}
-      >
-        {title}
-      </Typography>
-    </Link>
+    <Typography
+      className={`py-3 border-b-2 border-b-transparent hover:border-b-[${colors.main}] hover:text-[${colors.main}] cursor-pointer`}
+      onClick={() => push("#")}
+    >
+      {title}
+    </Typography>
   );
 };
 

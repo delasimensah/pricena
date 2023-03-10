@@ -1,39 +1,17 @@
-import { useState } from "react";
-import { IoSearchOutline, IoCaretDownOutline } from "react-icons/io5";
-import {
-  Menu,
-  MenuItem,
-  Typography,
-  Box,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
-import Link from "next/link";
+import { Box } from "@mui/material";
 
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
-import MultiLevelDropdown from "./MultiLevelDropdown";
+import AllCategories from "./allCategories";
 import AuthLink from "./AuthLink";
 import CountrySelect from "./CountrySelect";
 import LinkTab from "./LinkTab";
-
-const links = [
-  "Codes",
-  "Flip4",
-  "Galaxy S23",
-  "Fold4",
-  "iPhone 14",
-  "PS5",
-  "iPhone 14 Pro",
-  "Galaxy Watch5",
-  "P40 Pro",
-  "Price Drops",
-];
+import Links from "./Links";
 
 const Navbar = () => {
   return (
-    <div className="px-5 bg-white md:px-10 lg:px-20">
-      <div className="flex items-center py-4">
+    <Box className="px-5 bg-white md:px-10 lg:px-20">
+      <Box className="flex items-center py-4">
         <Logo />
 
         <SearchInput />
@@ -43,22 +21,16 @@ const Navbar = () => {
 
           <CountrySelect />
         </Box>
-      </div>
+      </Box>
 
       <Box className="flex items-center space-x-10 ">
-        <MultiLevelDropdown />
+        <AllCategories />
 
-        <Box className="flex items-center flex-1 space-x-10">
-          {links.map((link, idx) => {
-            return <LinkTab key={idx} title={link} />;
-          })}
-        </Box>
+        <Links />
 
-        <Box>
-          <LinkTab title="Coupons & Offers" />
-        </Box>
+        <LinkTab title="Coupons & Offers" />
       </Box>
-    </div>
+    </Box>
   );
 };
 

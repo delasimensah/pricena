@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import colors from "./colors";
 
 const getTheme = (fontFamily) => {
   return createTheme({
@@ -7,7 +8,7 @@ const getTheme = (fontFamily) => {
     },
     palette: {
       primary: {
-        main: "#3498DB",
+        main: colors.main,
       },
     },
   });
