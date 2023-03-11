@@ -9,6 +9,7 @@ import {
   BestPrice,
   Variants,
   ComparePrices,
+  Review,
 } from "@components";
 
 const ProductDetails = () => {
@@ -56,6 +57,8 @@ const ProductDetails = () => {
               <Variants />
 
               <ComparePrices />
+
+              <Review />
             </Box>
           </Grid>
 
