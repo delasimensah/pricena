@@ -15,7 +15,10 @@ const CascadingSubMenu = ({ title, popupId, ...props }) => {
 
   return (
     <>
-      <MenuItem {...bindHover(popupState)}>
+      <MenuItem
+        {...bindHover(popupState)}
+        className="hover:bg-transparent hover:text-[#3498d8]"
+      >
         <span className="flex-1">{title}</span>
       </MenuItem>
 
