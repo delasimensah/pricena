@@ -6,15 +6,15 @@
 // function CascadingMenuItem({ onClick, ...props }) {
 //   const { rootPopupState } = useContext(CascadingContext);
 
-//   if (!rootPopupState) throw new Error("must be used inside a CascadingMenu");
+// if (!rootPopupState) throw new Error("must be used inside a CascadingMenu");
 
-//   const handleClick = useCallback(
-//     (event) => {
-//       rootPopupState.close(event);
-//       if (onClick) onClick(event);
-//     },
-//     [rootPopupState, onClick]
-//   );
+// const handleClick = useCallback(
+//   (event) => {
+//     rootPopupState.close(event);
+//     if (onClick) onClick(event);
+//   },
+//   [rootPopupState, onClick]
+// );
 
 //   return <MenuItem {...props} onClick={handleClick} />;
 // }

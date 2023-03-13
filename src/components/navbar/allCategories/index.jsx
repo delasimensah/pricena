@@ -1,14 +1,14 @@
-import { createContext, Fragment } from "react";
+import { createContext } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
-import { Typography, Box, MenuItem } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { usePopupState, bindHover } from "material-ui-popup-state/hooks";
 import colors from "@lib/colors";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import CascadingMenu from "./CascadingMenu";
 import CascadingSubMenu from "./CascadingSubMenu";
 import CascadingMenuItem from "./CascadingMenuItem";
-import { ROUTES_MANIFEST } from "next/dist/shared/lib/constants";
 
 // const categories = [
 //   "Mobile, Tablet & Wearables",
@@ -89,8 +89,7 @@ const AllCategories = () => {
     variant: "popover",
   });
 
-  const {replace} = useRouter();
-  
+  const { replace } = useRouter();
 
   return (
     <>
@@ -118,27 +117,23 @@ const AllCategories = () => {
         {categories.map((cat) => {
           return (
             <CascadingSubMenu title={cat.title} key={cat.id} popupId={cat.id}>
-              {cat.sub.map((sub) => {
-                return sub.sub === undefined ? (
-                  <CascadingMenuItem
-                    key={sub.id}
-                    onClick={() => {
-                      console.log(cat.id);
-                      console.log(sub.id);
-                    }}
-                  >
-                    {sub.title}
+              {cat.sub.map((subOne) => {
+                return subOne.sub === undefined ? (
+                  <CascadingMenuItem key={subOne.id}>
+                    <Link href={`/${cat.id}/${subOne.id}`}>{subOne.title}</Link>
                   </CascadingMenuItem>
                 ) : (
                   <CascadingSubMenu
-                    key={sub.id}
-                    title={sub.title}
-                    popupId={sub.id}
+                    key={subOne.id}
+                    title={subOne.title}
+                    popupId={subOne.id}
                   >
-                    {sub.sub.map((sub) => {
+                    {subOne.sub.map((subTwo) => {
                       return (
-                        <CascadingMenuItem key={sub.id}>
-                          {sub.title}
+                        <CascadingMenuItem key={subTwo.id}>
+                          <Link href={`/${cat.id}/${subOne.id}/${subTwo.id}`}>
+                            {subTwo.title}
+                          </Link>
                         </CascadingMenuItem>
                       );
                     })}
