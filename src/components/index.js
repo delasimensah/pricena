@@ -8,3 +8,5 @@ export { default as BestPrice } from "./productPage/BestPrice";
 export { default as Variants } from "./productPage/Variants";
 export { default as ComparePrices } from "./productPage/ComparePrices";
 export { default as Review } from "./productPage/Review";
+
+export { default as FeaturedProducts } from "./home/FeaturedProducts";

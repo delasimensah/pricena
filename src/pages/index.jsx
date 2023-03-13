@@ -1,10 +1,23 @@
-import Link from "next/link";
-import { Layout } from "@components";
+import { Box } from "@mui/material";
+import { Layout, FeaturedProducts } from "@components";
 
 const Home = () => {
   return (
     <Layout>
-      <Link href="/product/samsung-galaxy-z-flip-3">Link To Product Page</Link>
+      <Box
+        sx={{
+          backgroundColor: "white",
+          maxWidth: "1356px",
+          marginX: "auto",
+          marginY: "20px",
+          paddingY: "10px",
+          paddingX: "40px",
+        }}
+        className="space-y-10"
+      >
+        <FeaturedProducts title="featured products" />
+        <FeaturedProducts title="featured" />
+      </Box>
     </Layout>
   );
 };
