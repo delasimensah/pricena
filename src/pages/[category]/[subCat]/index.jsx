@@ -6,17 +6,22 @@ import {
   Typography,
   Stack,
   Rating,
+  Button,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { Layout, Filters } from "@components";
 import Link from "next/link";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import Image from "next/image";
 
 import productImg from "@assets/8.png";
+import qonooz from "@assets/qonooz.png";
 
 const phonesArray = new Array(10).fill(0);
 
 const SubCategoryOne = () => {
+  const { palette } = useTheme();
+
   return (
     <Layout>
       <Box
@@ -67,7 +72,7 @@ const SubCategoryOne = () => {
               </Stack>
 
               <Breadcrumbs
-                sx={{ fontSize: "13px", color: "#3498d8" }}
+                sx={{ fontSize: "13px", color: palette.primary.main }}
                 separator={<IoChevronForwardOutline />}
               >
                 <Link href="#">Mobile Tablets & Wearables</Link>
@@ -133,7 +138,7 @@ const SubCategoryOne = () => {
                       </Box>
 
                       <Stack spacing="3px" sx={{ width: "35%" }}>
-                        <Link href="#">
+                        <Link href="/product/samsung-galaxy-z-flip-3">
                           <Typography
                             sx={{
                               fontSize: "15px",
@@ -159,7 +164,7 @@ const SubCategoryOne = () => {
                             sx={{
                               fontSize: "19px",
                               fontWeight: 700,
-                              color: "#3498d8",
+                              color: palette.primary.main,
                             }}
                           >
                             AED 2500
@@ -169,7 +174,7 @@ const SubCategoryOne = () => {
                         <Link href="#">
                           <Typography
                             sx={{
-                              color: "#3498d8",
+                              color: palette.primary.main,
                               fontSize: "14px",
                             }}
                           >
@@ -178,11 +183,163 @@ const SubCategoryOne = () => {
                         </Link>
 
                         <Typography sx={{ fontSize: "13px", color: "#888" }}>
-                          <Link href="#">AED 379</Link> from 28 nearby stores
+                          <Link href="#">
+                            <Box
+                              component="span"
+                              sx={{ color: palette.primary.main }}
+                            >
+                              AED 379
+                            </Box>
+                          </Link>{" "}
+                          from 28 nearby stores
                         </Typography>
                       </Stack>
 
-                      <Stack sx={{ width: "45%" }}></Stack>
+                      <Stack spacing="10px" sx={{ width: "45%" }}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                          <Image src={qonooz} alt="" height={30} width={60} />
+
+                          <Stack sx={{ marginRight: "30px" }}>
+                            <Typography
+                              sx={{ fontSize: "12px", color: "#888" }}
+                            >
+                              Qonooz
+                            </Typography>
+
+                            <Typography sx={{ fontSize: "14px" }}>
+                              <Link href="#">
+                                <Box
+                                  component="span"
+                                  sx={{
+                                    color: palette.primary.main,
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  3499 AED
+                                </Box>
+                              </Link>
+                              <Box
+                                component="span"
+                                sx={{ fontSize: "12px", color: "#888" }}
+                              >
+                                {" "}
+                                Free Shipping
+                              </Box>
+                            </Typography>
+                          </Stack>
+
+                          <Button
+                            sx={{
+                              backgroundColor: palette.primary.main,
+                              "&:hover": {
+                                backgroundColor: palette.primary.main,
+                              },
+                              color: "white",
+                              borderRadius: 0,
+                            }}
+                            size="large"
+                            endIcon={<IoChevronForwardOutline size={15} />}
+                          >
+                            Go to Shop
+                          </Button>
+                        </Stack>
+
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                          <Image src={qonooz} alt="" height={30} width={60} />
+
+                          <Stack sx={{ marginRight: "30px" }}>
+                            <Typography
+                              sx={{ fontSize: "12px", color: "#888" }}
+                            >
+                              Qonooz
+                            </Typography>
+
+                            <Typography sx={{ fontSize: "14px" }}>
+                              <Link href="#">
+                                <Box
+                                  component="span"
+                                  sx={{
+                                    color: palette.primary.main,
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  3499 AED
+                                </Box>
+                              </Link>
+                              <Box
+                                component="span"
+                                sx={{ fontSize: "12px", color: "#888" }}
+                              >
+                                {" "}
+                                Free Shipping
+                              </Box>
+                            </Typography>
+                          </Stack>
+
+                          <Button
+                            sx={{
+                              backgroundColor: palette.primary.main,
+                              "&:hover": {
+                                backgroundColor: palette.primary.main,
+                              },
+                              color: "white",
+                              borderRadius: 0,
+                            }}
+                            size="large"
+                            endIcon={<IoChevronForwardOutline size={15} />}
+                          >
+                            Go to Shop
+                          </Button>
+                        </Stack>
+
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                          <Image src={qonooz} alt="" height={30} width={60} />
+
+                          <Stack sx={{ marginRight: "30px" }}>
+                            <Typography
+                              sx={{ fontSize: "12px", color: "#888" }}
+                            >
+                              Qonooz
+                            </Typography>
+
+                            <Typography sx={{ fontSize: "14px" }}>
+                              <Link href="#">
+                                <Box
+                                  component="span"
+                                  sx={{
+                                    color: palette.primary.main,
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  3499 AED
+                                </Box>
+                              </Link>
+                              <Box
+                                component="span"
+                                sx={{ fontSize: "12px", color: "#888" }}
+                              >
+                                {" "}
+                                Free Shipping
+                              </Box>
+                            </Typography>
+                          </Stack>
+
+                          <Button
+                            sx={{
+                              backgroundColor: palette.primary.main,
+                              "&:hover": {
+                                backgroundColor: palette.primary.main,
+                              },
+                              color: "white",
+                              borderRadius: 0,
+                            }}
+                            size="large"
+                            endIcon={<IoChevronForwardOutline size={15} />}
+                          >
+                            Go to Shop
+                          </Button>
+                        </Stack>
+                      </Stack>
                     </Stack>
                   );
                 })}
